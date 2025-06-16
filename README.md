@@ -1,14 +1,55 @@
-# Vercel AI SDK RAG Guide Starter Project
+# 📄 PDF AI Chatbot
 
-This is the starter project for the Vercel AI SDK [Retrieval-Augmented Generation (RAG) guide](https://sdk.vercel.ai/docs/guides/rag-chatbot).
+Chatbot with PDF upload support, semantic search via embeddings, and database storage. Built using AI SDK, Next.js 14 (App Router), Drizzle ORM, and Google Cloud for embeddings.
 
-In this project, you will build a chatbot that will only respond with information that it has within its knowledge base. The chatbot will be able to both store and retrieve information. This project has many interesting use cases from customer support through to building your own second brain!
+---
 
-This project will use the following stack:
+## 🚀 Requirements
 
-- [Next.js](https://nextjs.org) 14 (App Router)
-- [Vercel AI SDK](https://sdk.vercel.ai/docs)
-- [OpenAI](https://openai.com)
-- [Drizzle ORM](https://orm.drizzle.team)
-- [Postgres](https://www.postgresql.org/) with [ pgvector ](https://github.com/pgvector/pgvector)
-- [shadcn-ui](https://ui.shadcn.com) and [TailwindCSS](https://tailwindcss.com) for styling
+- **Node.js**: v22.16.0
+- **pnpm**: recommended package manager
+- **Google Cloud Service Key**: provided by Anthony
+- **.env file**: provided by Anthony
+
+---
+
+## ⚙️ Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/thonygrz/pdf-ai-chatbot.git
+   cd pdf-ai-chatbot
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Add the `.env` file to the project root. This file will be provided by Anthony.
+
+4. Create a `gcloud` folder in the project root and place the Google Cloud service key (`.json`) inside. Anthony will provide this key.
+
+5. Run database migrations:
+   ```bash
+   pnpm db:migrate
+   ```
+
+6. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+---
+
+## 🧠 What does this project do?
+
+- Allows PDF uploads
+- Splits the content into chunks, generates embeddings with OpenAI (via Google Cloud), and stores them
+- Answers questions using semantic context from the PDF and the user's interaction history
+
+---
+
+## 📬 Contact
+
+To get the `.env` file and the Google Cloud key, please contact **Anthony** directly.
