@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1719997972944,
-      "tag": "0000_yielding_bloodaxe",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1750019222711,
-      "tag": "0001_awesome_the_fury",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1750060326629,
-      "tag": "0002_bitter_shaman",
+      "when": 1750075921423,
+      "tag": "0000_rare_butterfly",
       "breakpoints": true
     }
   ]
