@@ -11,8 +11,8 @@ import { eq } from "drizzle-orm";
  * @returns The ID of the newly created thread.
  */
 export async function createThread(title: string) {
-  const [thread] = await db.insert(threadsTable).values({ title }).returning();
-  return thread.id;
+  const [t] = await db.insert(threadsTable).values({ title }).returning();
+  return { id: t.id };
 }
 
 /**

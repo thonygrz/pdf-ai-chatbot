@@ -47,7 +47,7 @@ export default function ChatPage() {
       {/* Fixed input bar at the bottom with PDF upload */}
       <form
         onSubmit={handleSubmit}
-        className="fixed bottom-6 left-64 right-6 flex items-center bg-white border border-gray-300 rounded shadow-xl px-0"
+        className="fixed bottom-6 left-64 right-6 flex items-center bg-white border border-gray-300 rounded shadow-xl px-0 ml-4"
       >
         <UploadPDF threadId={threadId} />
         <input
