@@ -12,8 +12,11 @@ export async function POST(req: Request) {
   let title = "New Chat";
 
   try {
-    const body = await req.json();
-    if (body?.title) title = body.title;
+    const contentLength = req.headers.get("content-length");
+    if (contentLength && parseInt(contentLength) > 0) {
+      const body = await req.json();
+      if (body?.title) title = body.title;
+    }
   } catch (err) {
     console.warn("Failed to parse request body. Using default title.", err);
   }

@@ -3,7 +3,8 @@ import path from "path";
 import fs from "fs/promises";
 import { Storage } from "@google-cloud/storage";
 import { v4 as uuid } from "uuid";
-import { ImageAnnotatorClient } from "@google-cloud/vision";
+import { getStorageClient } from "@/lib/gcloud/getStorageClient";
+import { getVisionClient } from "@/lib/gcloud/getVisionClient";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 
 import { createResource } from "@/lib/actions/resources";
@@ -13,8 +14,8 @@ import { createPdf } from "@/lib/actions/pdfs";
 export const runtime = "nodejs";
 
 const bucketName = process.env.TEXT_BUCKET!;
-const storage = new Storage();
-const vision = new ImageAnnotatorClient();
+const storage = await getStorageClient();
+const vision = await getVisionClient();
 
 // Uploads the PDF to Google Cloud Storage
 async function uploadToGCS(localPath: string, destName: string) {
@@ -79,7 +80,8 @@ export async function POST(req: NextRequest) {
   let threadId = threadIdFromForm;
 
   if (!threadId) {
-    threadId = await createThread(`Thread ${new Date().toLocaleString()}`);
+    const thread = await createThread(`Thread ${new Date().toLocaleString()}`);
+    threadId = thread.id;
   }
 
   const pdfId = await createPdf(threadId, file.name);
