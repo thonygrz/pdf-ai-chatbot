@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/upload": {
+      "maxRequestBodySize": 50
+    }
+  }
+}
